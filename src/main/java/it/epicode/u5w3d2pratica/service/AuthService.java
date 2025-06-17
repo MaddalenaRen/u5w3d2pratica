@@ -1,12 +1,13 @@
 package it.epicode.u5w3d2pratica.service;
 
 
-import it.epicode.u5w3d1pratica.dto.LoginDto;
-import it.epicode.u5w3d1pratica.exception.NotFoundException;
-import it.epicode.u5w3d1pratica.model.User;
-import it.epicode.u5w3d1pratica.repository.UserRepository;
-import it.epicode.u5w3d1pratica.security.JwtTool;
+import it.epicode.u5w3d2pratica.dto.LoginDto;
+import it.epicode.u5w3d2pratica.exception.NotFoundException;
+import it.epicode.u5w3d2pratica.model.User;
+import it.epicode.u5w3d2pratica.repository.UserRepository;
+import it.epicode.u5w3d2pratica.security.JwtTool;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -17,6 +18,10 @@ public class AuthService {
 
     @Autowired
     private JwtTool jwtTool;
+
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+
 
     public String login(LoginDto loginDto) throws NotFoundException {
         User user= userRepository.findByEmail(loginDto.getEmail()).

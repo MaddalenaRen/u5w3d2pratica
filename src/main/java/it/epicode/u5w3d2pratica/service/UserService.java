@@ -1,10 +1,10 @@
 package it.epicode.u5w3d2pratica.service;
 
 
-import it.epicode.u5w3d1pratica.dto.UserDto;
-import it.epicode.u5w3d1pratica.exception.NotFoundException;
-import it.epicode.u5w3d1pratica.model.User;
-import it.epicode.u5w3d1pratica.repository.UserRepository;
+import it.epicode.u5w3d2pratica.dto.UserDto;
+import it.epicode.u5w3d2pratica.exception.NotFoundException;
+import it.epicode.u5w3d2pratica.model.User;
+import it.epicode.u5w3d2pratica.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

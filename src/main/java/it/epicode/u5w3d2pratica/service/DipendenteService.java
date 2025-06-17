@@ -2,10 +2,10 @@ package it.epicode.u5w3d2pratica.service;
 
 
 import com.cloudinary.Cloudinary;
-import it.epicode.u5w3d1pratica.dto.DipendenteDto;
-import it.epicode.u5w3d1pratica.exception.NotFoundException;
-import it.epicode.u5w3d1pratica.model.Dipendente;
-import it.epicode.u5w3d1pratica.repository.DipendenteRepository;
+import it.epicode.u5w3d2pratica.dto.DipendenteDto;
+import it.epicode.u5w3d2pratica.exception.NotFoundException;
+import it.epicode.u5w3d2pratica.model.Dipendente;
+import it.epicode.u5w3d2pratica.repository.DipendenteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;

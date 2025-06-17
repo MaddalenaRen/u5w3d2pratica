@@ -25,7 +25,7 @@ public class AuthController {
     private AuthService authService;
 
     @PostMapping("/auth/register")
-    public User register(@RequestBody @Validated UserDto userDto, BindingResult bindingResult) throws ValidationException {
+    public User register(@RequestBody @Validated UserDto userDto, BindingResult bindingResult) throws ValidationException, NotFoundException {
         if(bindingResult.hasErrors()){
             throw new ValidationException(bindingResult.getAllErrors().stream().
                     map(objectError ->objectError.getDefaultMessage()).
@@ -43,10 +43,7 @@ public class AuthController {
                     reduce("",(e,s)->e+s));
         }
 
-        //1. verificare che utente esiste
-        //2. se non esiste lancia un'eccezione
-        //3. se esiste dovrà generare il token
-        //4. e inviarlo al client
+
         return authService.login(loginDto);
 
 
