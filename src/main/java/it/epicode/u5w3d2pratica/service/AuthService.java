@@ -1,6 +1,5 @@
 package it.epicode.u5w3d2pratica.service;
 
-
 import it.epicode.u5w3d2pratica.dto.LoginDto;
 import it.epicode.u5w3d2pratica.exception.NotFoundException;
 import it.epicode.u5w3d2pratica.model.User;
@@ -22,16 +21,14 @@ public class AuthService {
     @Autowired
     private PasswordEncoder passwordEncoder;
 
-
     public String login(LoginDto loginDto) throws NotFoundException {
-        User user= userRepository.findByEmail(loginDto.getEmail()).
-                orElseThrow(() -> new NotFoundException("utente con email: " + loginDto.getEmail() + " non trovato"));
+        User user = userRepository.findByEmail(loginDto.getEmail())
+                .orElseThrow(() -> new NotFoundException("Utente con email: " + loginDto.getEmail() + " non trovato"));
 
-        if(loginDto.getPassword().equals(user.getPassword())){
-            //utente autenticato, creo token
+        if (passwordEncoder.matches(loginDto.getPassword(), user.getPassword())) {
             return jwtTool.createToken(user);
-        }else {
-            throw new NotFoundException("utente con questo email/password non trovato");
+        } else {
+            throw new NotFoundException("Utente con questa email/password non trovati");
         }
     }
 }
